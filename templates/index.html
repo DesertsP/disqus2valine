@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Deserts</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://junwen.qiniudn.com/screen.css">
+    <style>
+        input {
+            padding: 10px 10px 10px 10px;
+            margin-bottom: 16px;
+            border: 1px solid #dae1e3;
+            font-size: 1.6rem;
+            line-height: 1em;
+            font-weight: 100;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #submit {
+            font-weight: 400;
+            padding: 4px 10px;
+            border: 1px solid #4fb7f0;
+            color: #ffffff;
+            font-size: 2rem;
+            line-height: 1.8em;
+            border-radius: 30px;
+            opacity: .8;
+            background: #29a0e0;
+        }
+
+        #APPID, #APPKEY {
+        {#            outline: none;#}{#            color: #fff;#}{#            line-height: 37px;#}{#            font-weight: 400;#}{#            text-align: center;#}{#            text-shadow: 0 -1px 0 rgba(0,0,0,0.1);#}{#            border-radius: 5px;#}{#            box-shadow: 0 0 0 1px inset rgba(0,0,0,0.14);#}{##}{#            -webkit-font-smoothing: subpixel-antialiased;#}
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrapper">
+
+    <header class="site-header outer">
+        <div class="inner">
+            <nav class="site-nav">
+                <div class="site-nav-left">
+                    <a class="site-nav-logo" href="https://panjunwen.com"><img
+                            src="http://cloud.panjunwen.com/2017/08/deserts-logo-main.svg" alt="Deserts"></a>
+                    <ul class="nav">
+                        <li class="nav-home" role="presentation"><a href="https://panjunwen.com/">Home</a></li>
+                        <li class="nav-books" role="presentation"><a href="https://panjunwen.com/books/">Books</a></li>
+                        <li class="nav-links" role="presentation"><a href="https://panjunwen.com/links/">Links</a></li>
+                        <li class="nav-about nav-current" role="presentation"><a href="https://panjunwen.com/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="site-nav-right">
+                    <div class="social-links">
+                    </div>
+                    <a class="subscribe-button" href="https://panjunwen.com/#subscribe">Subscribe</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="site-main" class="site-main outer" role="main">
+        <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2017-08-08">08 August 2017</time>
+                        <span class="date-divider">/</span> <a href="https://panjunwen.com/tag/zhe-teng">折腾</a>
+                </section>
+                <h1 class="post-full-title">Disqus2LeanCloud</h1>
+
+        <p class="site-description">评论数据迁移工具</p>
+        </header>
+        <div class="post-feed" style="padding-top: 0">
+                <div class="post post-card post-card-content-link">
+                    <form method="POST" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        APP ID: <br>{{ form.APPID }}<br>
+                        APP KEY:<br> {{ form.APPKEY }}<br>
+                        {{ form.data }}<br>
+                        {% for error in form.data.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endfor %}
+                        <br>
+                        {{ form.submit }}
+                    </form>
+                </div>
+                <div class="post post-card post-card-content-link">
+                    <h2 class="post-card-title">数据转换和导入方法</h2>
+                    <div class="post-card-content">
+                        <section class="post-card-excerpt">
+                            <p> 1. 按照<a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/">教程</a>安装好评论，去
+                                Disqus 导出所需数据(xml)；<br>
+                                2. 在本页面填写 LeanCloud 的 APPID 和 APPKEY，选择.xml文件上传；<br>
+                                3. 点击开始后程序自动工作，大约两分钟可以导入完成；<br>
+                                <br>
+                                祝玩得愉快！如有任何疑问或导入失败，可以联系 Deserts 获取帮助。<br>
+                                <a class="error-link" href="https://panjunwen.com">（AD）欢迎到我的小站转转 →</a>
+                                <br>
+                            </p>
+                        </section>
+                    </div>
+
+                </div>
+        </div>
+
+    </main>
+<footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"> © 2017 <a href="https://panjunwen.com">Deserts</a> <a target="_blank" rel="nofollow noopener" href="http://www.miitbeian.gov.cn/">晋 ICP 备 17001752 号</a></section>
+                <nav class="site-footer-nav">
+                    <a href="https://panjunwen.com">Latest Posts</a>
+                    <a href="https://ghost.org" rel="nofollow noopener" target="_blank">Powered by Ghost</a>
+                </nav>
+            </div>
+        </footer>
+</div>
+</body>
+</html>
