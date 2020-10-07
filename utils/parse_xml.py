@@ -1,3 +1,4 @@
+# coding=utf-8
 import xml.etree.ElementTree as ET
 import re
 # import bs4
@@ -34,7 +35,7 @@ def parse_post(root, post_node):
     # print(message)
     # message = bs4.BeautifulSoup(message, 'html.parser').text
     author_node = post_node.find('{http://disqus.com}author')
-    email = author_node.find('{http://disqus.com}email').text
+    # email = author_node.find('{http://disqus.com}email').text
     name = author_node.find('{http://disqus.com}name').text
     created_at = post_node.find('{http://disqus.com}createdAt').text
     thread_id = post_node.find('{http://disqus.com}thread')\
@@ -47,11 +48,10 @@ def parse_post(root, post_node):
         parent_post_author = \
             get_post_author(root,
                                   parent.get('{http://disqus.com/disqus-internals}id'))
-        message = '<a class="at" href="#">@' + parent_post_author + '</a> ' + message;
-    print(message)
+        message = '<a class="at" href="#">@' + parent_post_author + '</a> ' + message
     return {
         'message': message,
-        'email': email,
+        # 'email': email,
         'name': name,
         'thread_url': thread_url,
         'parent_post_author': parent_post_author,
@@ -62,4 +62,16 @@ def parse_post(root, post_node):
 def parse_all_posts(file_path):
     tree = ET.ElementTree(file=file_path)
     root = tree.getroot()
-    return [parse_post(root, post) for post in get_all_posts(root)]
+    result = {
+        'status': 'Parse xml successfully.',
+        'data': None
+    }
+    try:
+        result['data'] = [parse_post(root, post) for post in get_all_posts(root)]
+        result['status'] = 'Parse xml successfully.'
+    except Exception as e:
+        result['status'] = 'Parse xml error.' + str(e)
+        result['data'] = None
+    finally:
+        return result
+

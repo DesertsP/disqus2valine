@@ -13,7 +13,7 @@ Comment = leancloud.Object.extend('Comment')
 def build_object(comment_data):
     comment = Comment()
     comment.set('nick', comment_data['name'])
-    comment.set('mail', comment_data['email'])
+    # comment.set('mail', comment_data['email'])
     comment.set('url', comment_data['thread_url'])
     comment.set('comment', comment_data['message'])
     comment.set('status', 1)

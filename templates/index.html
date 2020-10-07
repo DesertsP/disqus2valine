@@ -7,7 +7,7 @@
     <title>Deserts</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="http://junwen.qiniudn.com/screen.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='screen.css') }}">
     <style>
         input {
             padding: 10px 10px 10px 10px;
@@ -40,35 +40,8 @@
 <body>
 <div class="site-wrapper">
 
-    <header class="site-header outer">
-        <div class="inner">
-            <nav class="site-nav">
-                <div class="site-nav-left">
-                    <a class="site-nav-logo" href="https://panjunwen.com"><img
-                            src="http://cloud.panjunwen.com/2017/08/deserts-logo-main.svg" alt="Deserts"></a>
-                    <ul class="nav">
-                        <li class="nav-home" role="presentation"><a href="https://panjunwen.com/">Home</a></li>
-                        <li class="nav-books" role="presentation"><a href="https://panjunwen.com/books/">Books</a></li>
-                        <li class="nav-links" role="presentation"><a href="https://panjunwen.com/links/">Links</a></li>
-                        <li class="nav-about nav-current" role="presentation"><a href="https://panjunwen.com/about/">About</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="site-nav-right">
-                    <div class="social-links">
-                    </div>
-                    <a class="subscribe-button" href="https://panjunwen.com/#subscribe">Subscribe</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
     <main id="site-main" class="site-main outer" role="main">
         <header class="post-full-header">
-                <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="2017-08-08">08 August 2017</time>
-                        <span class="date-divider">/</span> <a href="https://panjunwen.com/tag/zhe-teng">折腾</a>
-                </section>
                 <h1 class="post-full-title">Disqus2LeanCloud</h1>
 
         <p class="site-description">评论数据迁移工具</p>
@@ -79,6 +52,7 @@
                         {{ form.hidden_tag() }}
                         APP ID: <br>{{ form.APPID }}<br>
                         APP KEY:<br> {{ form.APPKEY }}<br>
+                        E-mail(数据导入结果通知):<br> {{ form.email }}<br>
                         {{ form.data }}<br>
                         {% for error in form.data.errors %}
                             <span style="color: red;">{{ error }}</span>
@@ -97,7 +71,7 @@
                                 3. 点击开始后程序自动工作，大约两分钟可以导入完成；<br>
                                 <br>
                                 祝玩得愉快！如有任何疑问或导入失败，可以联系 Deserts 获取帮助。<br>
-                                <a class="error-link" href="https://panjunwen.com">（AD）欢迎到我的小站转转 →</a>
+                                <a class="error-link" href="https://deserts.io">（AD）欢迎到我的小站转转 →</a>
                                 <br>
                             </p>
                         </section>
@@ -109,9 +83,9 @@
     </main>
 <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"> © 2017 <a href="https://panjunwen.com">Deserts</a> <a target="_blank" rel="nofollow noopener" href="http://www.miitbeian.gov.cn/">晋 ICP 备 17001752 号</a></section>
+                <section class="copyright"> © 2017 <a href="https://deserts.io">Deserts</a> <a target="_blank" rel="nofollow noopener" href="http://www.miitbeian.gov.cn/">晋 ICP 备 17001752 号</a></section>
                 <nav class="site-footer-nav">
-                    <a href="https://panjunwen.com">Latest Posts</a>
+                    <a href="https://deserts.io">Latest Posts</a>
                     <a href="https://ghost.org" rel="nofollow noopener" target="_blank">Powered by Ghost</a>
                 </nav>
             </div>

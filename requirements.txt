@@ -1,0 +1,6 @@
+Werkzeug==0.16.0
+leancloud
+flask
+flask_uploads
+flask_wtf
+wtforms
